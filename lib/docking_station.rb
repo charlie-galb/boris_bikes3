@@ -19,7 +19,7 @@ class DockingStation
 
   private
   def full?
-    @stock.length >= DEFAULT_CAPACITY ? true : false
+    @stock.length >= @capacity ? true : false
     #return raise "Bike station full" if @stock.length >= 20
   end
 
