@@ -8,10 +8,10 @@ class DockingStation
 
   def release_bike
     return raise "Docking station empty" if @stock.empty?
-    Bike.new
+    @stock.pop
   end
   def dock(bike)
-    return raise "Bike station full" if (@stock.length == 1)
+    return raise "Bike station full" if @stock.length == 20
 
     @stock << bike
   end
