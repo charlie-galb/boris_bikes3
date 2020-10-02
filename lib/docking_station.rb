@@ -1,6 +1,7 @@
 require_relative 'bike'
 class DockingStation
   attr_reader :bike
+  DOCKING_STATION = 20
 
   def initialize
     @stock = []
@@ -17,7 +18,7 @@ class DockingStation
 
   private
   def full?
-    @stock.length >= 20 ? true : false
+    @stock.length >= DOCKING_STATION ? true : false
     #return raise "Bike station full" if @stock.length >= 20
   end
 
