@@ -36,4 +36,25 @@ describe DockingStation do
     expect(DockingStation.new(input).capacity).to eq(25)
   end
 
+  it 'Raises error if user tries to undock broken bike' do
+    bike = Bike.new
+    subject.dock(bike)
+    # report broken Bike
+    expect{subject.release_bike}.to raise_error
+  end
+
+  it { is_expected.to respond_to :report_broken }
+
+  it 'Reports broken bike' do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    docking_station.dock(bike)
+
+    allow($stdin).to receive(:gets).and_return("yes")
+    input = $stdin.gets
+
+    expect(docking_station.report_broken(input)).to eq("Thank you for your report")
+  end
+
+
 end

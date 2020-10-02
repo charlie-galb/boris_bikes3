@@ -1,5 +1,8 @@
 class Bike
+  def initialize
+    @functional = false
+  end
  def working?
-   true
+   @functional
  end
 end

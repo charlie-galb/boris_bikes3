@@ -14,8 +14,17 @@ class DockingStation
 
   def release_bike
     return raise "Docking station empty" if empty?
+    return raise "No working bikes remaining" if (@stock.last.working? == false)
     @stock.pop
   end
+
+  def report_broken(input)
+    puts "Is your bike broken?"
+    if input == "yes"
+      "Thank you for your report"
+    end
+  end
+
   def dock(bike)
     return raise "Bike station full" if full?
     @stock << bike
