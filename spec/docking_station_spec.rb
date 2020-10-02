@@ -1,12 +1,5 @@
 require 'docking_station'
 describe DockingStation do
-  it { is_expected.to respond_to :release_bike }
-  #it 'releases working bikes' do
-  #  bike = subject.release_bike
-  #  expect(bike).to be_working
-  #end
-  it { is_expected.to respond_to(:dock).with(1).argument }
-  it { is_expected.to respond_to(:bike) }
 
   it "Releases a bike if one is available" do
 
@@ -22,4 +15,14 @@ describe DockingStation do
 
     expect{ 21.times { subject.dock(Bike.new) } }.to raise_error("Bike station full")
   end
+
+  #check takes argument
+  it "returns user input capacity" do
+    docking_station = DockingStation.new("25")
+    expect(docking_station.capacity).to eq(25)
+  end
+
+  #check takes capacity
+  #if no argument - default to DOCKING_STATION
+
 end
