@@ -11,6 +11,8 @@ class DockingStation
     Bike.new
   end
   def dock(bike)
-    @bike = bike
+    return raise "Bike station full" if (@stock.length == 1)
+
+    @stock << bike
   end
 end
