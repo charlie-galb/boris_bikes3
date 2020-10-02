@@ -29,4 +29,11 @@ describe DockingStation do
     expect(docking_station.capacity).to eq(20)
   end
 
+  it "Changes default capacity according to user input" do
+    allow($stdin).to receive(:gets).and_return("25")
+    input = $stdin.gets
+
+    expect(DockingStation.new(input).capacity).to eq(25)
+  end
+
 end

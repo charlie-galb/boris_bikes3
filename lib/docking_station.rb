@@ -5,7 +5,11 @@ class DockingStation
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @stock = []
-    @capacity = capacity.to_i
+    if ("1".."30").include?(capacity)
+      @capacity = capacity.to_i
+    else
+      @capacity = DEFAULT_CAPACITY
+    end
   end
 
   def release_bike
@@ -26,7 +30,5 @@ class DockingStation
   def empty?
     @stock.empty?
   end
-
-
 
 end
